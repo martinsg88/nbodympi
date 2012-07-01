@@ -5,9 +5,9 @@
 
 #define WIDTH  1000
 #define HEIGHT 1000
-#define BODIES 10
-#define GRAVITY .001
-#define TIMESTEP 50
+#define BODIES 100
+#define GRAVITY .002
+#define TIMESTEP 1000
 
 
 typedef enum {FALSE, TRUE} boolean;
@@ -105,7 +105,7 @@ int main() {
     }
 	gettimeofday(&tim2, NULL);
 	double t2 = tim2.tv_sec+(tim2.tv_usec/100000.0);
-	printf("Total time taken in seconds: %f\n",t2-t1);
+	printf("                Sequential took: Total time taken in seconds: %f\n",t2-t1);
 
     return 0;
 }

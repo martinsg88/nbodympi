@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+
+$z = 1;
+for($i = 0; $i < $z; $i++){
+    print "             Sequential ran $i times out of $z\n";
+    system("./output");
+    print "             Parallel ran $i times out of $z\n";
+    system("mpirun -np 2 ./output2");
+}
+
+system("mogrify -format jpg *.pbm");
+system("rm *.pbm");

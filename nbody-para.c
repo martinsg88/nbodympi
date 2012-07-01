@@ -7,9 +7,9 @@
 
 #define WIDTH  1000
 #define HEIGHT 1000
-#define BODIES 10
-#define GRAVITY .001
-#define TIMESTEP 50
+#define BODIES 100
+#define GRAVITY .002
+#define TIMESTEP 1000
 
 
 typedef enum {FALSE, TRUE} boolean;
@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
             particles[i] = rbuff[i];
         }
 		if(rank == 0){
-			sprintf(buffer, "%d.pbm", t);
+			sprintf(buffer, "para-%d.pbm", t);
 			printf("> %s\n", buffer);
 			fout = fopen(buffer, "w");
 			fprintf(fout, "P1\n");
@@ -128,7 +128,7 @@ int main(int argc, char* argv[]) {
 	if(rank == 0){
 		gettimeofday(&tim2, NULL);
 		double t2 = tim2.tv_sec+(tim2.tv_usec/100000.0);
-		printf("Total time taken in seconds: %f\n",t2-t1);
+		printf("                Parallel took: Total time taken in seconds: %f\n",t2-t1);
 	}
 	
 MPI_Finalize();
